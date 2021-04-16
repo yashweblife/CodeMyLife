@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(100, 100, 100);
+        }
+        
+        .app {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .face {
+            position: relative;
+            background-color: rgb(255, 214, 78);
+            width: 30vw;
+            height: 30vw;
+            border-radius: 50%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
+        }
+        
+        .eyes {
+            width: 100%;
+            height: 50%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        
+        .eye {
+            width: 20%;
+            height: 50%;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border-radius: 50%;
+        }
+        
+        .lid {
+            position: absolute;
+            top: 0;
+            background-color: rgb(255, 214, 78);
+            width: 100%;
+            height: 0%;
+            transition: 0.2s;
+            border-radius: 50%;
+        }
+        
+        .mouth {
+            position: absolute;
+            top: 70%;
+            width: 50%;
+            height: 0em;
+            background-color: white;
+            border: 0.5em solid black;
+            border-radius: 30%;
+        }
+        
+        .open-mouth {
+            height: 3em;
+        }
+        
+        .close-lid {
+            height: 90%;
+            border-bottom: 0.1em solid black;
+            border-left: 0.1 solid black;
+            border-right: 0.1 solid black;
+        }
+        
+        .controls {
+            width: 50%;
+            height: 20%;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            grid-row-gap: 0.5em;
+        }
+        
+        .btn {
+            font-size: 1.5em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(32, 32, 32);
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: rgb(52, 52, 52);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="app">
+        <div class="face">
+            <div class="eyes">
+                <div class="eye">
+                    <div class="lid" id="lid1"></div>
+                </div>
+                <div class="eye">
+                    <div class="lid" id="lid2"></div>
+                </div>
+                <div class="mouth" id="mouth"></div>
+            </div>
+        </div>
+        <div class="controls">
+            <div class="title">Eyes</div>
+            <div class="btn" onclick="toggle(eye1,'close-lid');toggle(eye2,'close-lid')">Toggle</div>
+            <div class="title">Mouth</div>
+            <div class="btn" onclick="toggle(mouth,'open-mouth')">Toggle</div>
+        </div>
+    </div>
+    <script>
+        var mouth = document.getElementById('mouth');
+        var eye1 = document.getElementById('lid1');
+        var eye2 = document.getElementById('lid2');
+
+        function toggle(a, b) {
+            a.classList.toggle(b);
+        }
+    </script>
+</body>
+
+</html>
