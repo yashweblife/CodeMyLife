@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+    margin: 0
+}
+
+.app {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100vw;
+    background-color: rgb(190, 190, 190);
+    color: white;
+    min-height: 200vh;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1em;
+    box-shadow: 0 8px 4px -4px rgba(0, 0, 0, 0.8);
+    background-color: #a4508b;
+    background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
+    padding: 1em 0.5em;
+}
+
+.front {
+    width: 90vw;
+    height: 70vh;
+    background-color: rgb(22, 22, 22);
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    border-radius: 1em;
+    box-shadow: 0 8px 4px -4px rgba(0, 0, 0, 0.3);
+    background: url("profile.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.base {
+    width: 100%;
+    padding: 0.5em 0;
+    background-color: rgb(32, 32, 32);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+img {
+    width: 15vw;
+    height: 15vw;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+img:hover {
+    box-shadow: 0 0 8px rgba(250, 204, 55, 0.5);
+}
+
+.title {
+    font-size: 1.2rem;
+}
+
+.content {
+    width: 100%;
+    color: rgb(200, 200, 200);
+    text-align: left;
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.2s;
+    overflow: hidden;
+    padding: 1em;
+    backdrop-filter: blur(1px);
+    opacity: 0;
+}
+
+.front:hover .content {
+    opacity: 100%;
+}
+
+@media screen and (min-width:720px) {
+    .app {
+        flex-direction: row;
+        min-height: 100vh;
+    }
+    .front {
+        width: 300px;
+        height: 400px
+    }
+    img {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+    }
+}
