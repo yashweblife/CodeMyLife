@@ -1,0 +1,137 @@
+:root {
+    --size: 150px;
+    --n-size: calc(var(--size) * -1);
+    --half: calc(var(--size)/2);
+    --n-half: calc(var(--half) * -1);
+    --rot: 90deg;
+    --n-rot: calc(var(--rot) * -1);
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.app {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    perspective: 900deg;
+    background-color: #000000;
+    background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
+}
+
+.cube {
+    width: 20vw;
+    height: 20vw;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transform: rotateY(-45deg) rotateX(-45deg);
+    transition: 1s;
+}
+
+.space:hover>.cube {
+    transform: rotateY(360deg) rotateX(-30deg);
+}
+
+.side {
+    display: grid;
+    place-content: center;
+    font-size: 2rem;
+    color: white;
+    position: absolute;
+    width: calc(var(--size) + 50px);
+    height: calc(var(--size) + 50px);
+    background-color: rgb(52, 52, 52);
+    transition: 0.2s;
+    cursor: pointer;
+    border: 1em solid rgb(0, 0, 0);
+    box-shadow: 0 0 50px 5px rgba(255, 255, 255, 0.5);
+    border-radius: 1em;
+}
+
+.side:hover {
+    width: calc(var(--size) + 10px);
+    height: calc(var(--size) + 10px);
+}
+
+.s1 {
+    background-color: rgba(238, 130, 238, 0.459);
+    transform: translateZ(var(--half));
+}
+
+.s2 {
+    background-color: rgba(168, 92, 168, 0.575);
+    transform: translateZ(var(--n-half));
+}
+
+.s3 {
+    background-color: violet;
+    transform: translateX(var(--half)) rotateY(var(--rot));
+}
+
+.s4 {
+    background-color: violet;
+    transform: translateX(var(--n-half)) rotateY(var(--n-rot));
+}
+
+.s5 {
+    background-color: rgba(238, 209, 130, 0.76);
+    transform: translateY(var(--half)) rotateX(var(--rot));
+}
+
+.s6 {
+    background-color: rgba(247, 231, 88, 0.541);
+    transform: translateY(var(--n-half)) rotateX(var(--n-rot));
+}
+
+.cube:hover>.s1 {
+    background-color: rgba(153, 205, 50, 0.637);
+    transform: translateZ(var(--size));
+}
+
+.cube:hover>.s2 {
+    transform: translateZ(var(--n-size));
+}
+
+.cube:hover>.s3 {
+    transform: translateX(var(--size)) rotateY(var(--rot));
+}
+
+.cube:hover>.s4 {
+    transform: translateX(var(--n-size)) rotateY(var(--n-rot));
+}
+
+.cube:hover>.s5 {
+    transform: translateY(var(--size)) rotateX(var(--rot));
+}
+
+.cube:hover>.s6 {
+    transform: translateY(var(--n-size)) rotateX(var(--n-rot));
+}
+
+.content {
+    font-size: 1.2rem;
+    color: white;
+    display: none;
+    transition: 0.2s;
+}
+
+.content:hover {
+    font-size: 2rem;
+}
+
+.cube:hover>.content {
+    display: block;
+}
+
+.title {
+    font-size: 3rem;
+    color: white;
+}
