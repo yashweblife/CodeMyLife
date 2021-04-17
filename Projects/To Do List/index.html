@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(200, 200, 200);
+        }
+        
+        .app {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .todo-box {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 50%;
+            background-color: rgb(32, 32, 32);
+            color: white;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+        }
+        
+        .title {
+            font-size: 2vw;
+            width: 100%;
+            text-align: center;
+            border-bottom: 0.2em solid rgb(150, 150, 150);
+            background-color: rgb(42, 42, 42);
+            padding: 0.5em 0;
+        }
+        
+        .list {
+            background-color: rgb(32, 32, 32);
+            color: white;
+            width: 100%;
+            height: 50vh;
+            overflow-y: scroll;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .thing {
+            width: 100%;
+            padding: 0.5em 0;
+            font-size: 1.5vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .thing>.options {
+            width: 30%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        
+        .thing>.options>.btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 1em;
+            height: 1em;
+            border: 0.2em solid rgb(42, 42, 42);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .thing>.options>.btn {
+            border: 0.2em solid rgb(116, 116, 116);
+            background-color: rgb(200, 200, 200);
+            color: black;
+        }
+        
+        .input-box {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 8fr 2fr;
+        }
+        
+        .input-box>input {
+            font-size: 1.5vw;
+            outline: none;
+            border: 0;
+        }
+        
+        .input-box>.btn {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(42, 42, 42);
+        }
+        
+        .input-box>.btn:hover {
+            background-color: rgb(52, 52, 52);
+        }
+        
+        .completed {
+            text-decoration: line-through;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="app">
+        <div class="todo-box">
+            <div class="title">List of Things</div>
+            <div class="list" id="list">
+                <div class="thing">
+                    <div class="name">Item 1</div>
+                    <div class="options">
+                        <div class="btn"></div>
+                        <div class="btn"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="input-box">
+                <input type="text" class="input" id="input"></input>
+                <div class="btn" onclick="makeThing()">Push</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function id(a) {
+            return (document.getElementById(a));
+        }
+
+        function create(a) {
+            return (document.createElement(a));
+        }
+        var inp = id("input");
+        var ls = id("list");
+
+        function makeThing() {
+            if (inp.value.length == 0) return;
+            var thing = create("div");
+            thing.setAttribute("class", "thing");
+
+            var name = create("div");
+            name.innerText = inp.value;
+
+            var opt = create("div");
+            opt.setAttribute("class", "options");
+
+            var btn1 = create("div");
+            btn1.innerText = "X";
+            btn1.setAttribute("class", "btn");
+
+            btn1.onclick = () => {
+                thing.remove();
+            }
+
+            var btn2 = create("div");
+            btn2.innerText = "C";
+            btn2.setAttribute("class", "btn");
+            btn2.onclick = () => {
+                name.classList.toggle("completed");
+            }
+
+            opt.append(btn1);
+            opt.append(btn2);
+            thing.append(name);
+            thing.append(opt);
+            ls.append(thing);
+            inp.value = "";
+        }
+    </script>
+</body>
+
+</html>
