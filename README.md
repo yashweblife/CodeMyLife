@@ -13,3 +13,4 @@ This is a container for Code My Life Projects
 <li>The HTML Canvas: part 1: <a href="https://www.youtube.com/watch?v=O0NRsldcq3U">Click Here</a></li>
 </ul>
 
+<h2>These Projects are made by the owner of Code My Life</h2>

@@ -6,9 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        
+        .app {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(32, 32, 32);
+        }
+        
+        canvas {
+            /*filter: url('#goo');*/
+        }
+    </style>
 </head>
 
 <body>
+    <div class="app">
+        <canvas id="canvas"></canvas>
+        <svg>
+            <defs>
+                <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 19 -9" result="goo"/>
+                    <feComposite in="SourceGraphic" in="goo" operator="atop"/>
+                </filter>
+            </defs>
+        </svg>
+    </div>
+    <script src="index.js"></script>
 
 </body>
 
