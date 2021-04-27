@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .app {
+            width: 100vw;
+            min-height: 100vh;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            position: relative;
+        }
+        
+        .controls {
+            width: 50vw;
+            height: 100vh;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+        }
+        
+        .catagory {
+            width: 90%;
+            padding: 2em;
+            background-color: rgb(95, 161, 131);
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .catagory>h2 {
+            font-size: 2em;
+            width: 100%;
+        }
+        
+        .btns {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+        
+        .btn {
+            width: 100%;
+            margin: 1px;
+            font-size: 1.2em;
+            padding: 1em;
+            background-color: rgb(218, 153, 153);
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: rgb(200, 200, 200);
+        }
+        
+        .base {
+            padding: 1em;
+            width: 50vw;
+            height: 100vh;
+            display: flex;
+            background-color: rgb(255, 206, 206);
+        }
+        
+        .base>div {
+            border: 1px solid black;
+        }
+        
+        .choice {
+            position: absolute;
+            bottom: 10%;
+            right: 10%;
+            font-size: 1.5em;
+        }
+        
+        .adder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        @media screen and (max-width:1500px) {
+            .app {
+                flex-direction: column;
+            }
+            .controls {
+                width: 100vw;
+                height: 50vh;
+            }
+            .base {
+                width: 100vw;
+                height: 50vh;
+                display: flex;
+            }
+            .adder {
+                position: absolute;
+                top: 50%;
+                left: 0%;
+                transform: translateY(-100%);
+            }
+            .btn {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class='app'>
+        <div class="controls">
+            <div class="catagory">
+                <h2>Justify Content</h2>
+                <div class="btns">
+                    <div class="btn" onclick="justifyContent('center')">Center</div>
+                    <div class="btn" onclick="justifyContent('space-between')">Space Between</div>
+                    <div class="btn" onclick="justifyContent('space-around')">Space Around</div>
+                    <div class="btn" onclick="justifyContent('space-evenly')">Space Evenly</div>
+                </div>
+            </div>
+            <div class="catagory">
+                <h2>Align Items</h2>
+                <div class="btns">
+                    <div class="btn" onclick="alignItems('center')">Center</div>
+                    <div class="btn" onclick="alignItems('flex-start')">Flex Start</div>
+                    <div class="btn" onclick="alignItems('flex-end')">Flex End</div>
+                </div>
+
+            </div>
+            <div class="catagory">
+                <h2>Flex direction</h2>
+                <div class="btns">
+                    <div class="btn" onclick="flexDir('column')">Column</div>
+                    <div class="btn" onclick="flexDir('row')">Row</div>
+                    <div class="btn" onclick="flexDir('column-reverse')">Column Reverse</div>
+                    <div class="btn" onclick="flexDir('row-reverse')">Row Reverse</div>
+                </div>
+            </div>
+        </div>
+        <div class="base">
+
+        </div>
+        <div class="choice">
+            <div id="jc">None</div>
+            <div id="ai">None</div>
+            <div id="fd">None</div>
+        </div>
+        <div class="adder">
+            <div class="btn" onclick="add()">ADD</div>
+        </div>
+    </div>
+    <script>
+        var base = document.querySelector('.base');
+        var js = document.getElementById("jc");
+        var ai = document.getElementById("ai");
+        var fd = document.getElementById("fd");
+
+        function justifyContent(a) {
+            base.style.justifyContent = a;
+            js.innerText = "Justify Content: " + a;
+        }
+
+        function alignItems(a) {
+            base.style.alignItems = a;
+            ai.innerText = "Align Items: " + a;
+        }
+
+        function flexDir(a) {
+            base.style.flexDirection = a;
+            fd.innerText = "Flex Diection: " + a;
+        }
+
+        function add() {
+            var x = document.createElement("div");
+            x.style.backgroundColor = `rgb(${Math.floor(Math.random()*255)}, ${Math.floor(Math.random()*255)}, ${Math.floor(Math.random()*255)})`;
+            x.style.width = `${Math.floor(Math.random() * 10) + 10}vw`;
+            x.style.height = `${Math.floor(Math.random() * 10) + 10}vh`;
+
+            x.onclick = () => {
+                x.remove();
+            }
+            base.appendChild(x)
+        }
+    </script>
+</body>
+
+</html>

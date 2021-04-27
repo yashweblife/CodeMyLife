@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@500&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="app">
+        <div class="phone" id="phone">
+            <div class="title">The New SADSONG G-420</div>
+
+            <div class="bg"></div>
+
+            <div class="body" id="body">
+                <div class="screen">
+
+                    <div class="cam">
+                        <div class="lense"></div>
+                    </div>
+
+                    <div class="view">
+                        <div class="info">
+                            <div class="time">10:30</div>
+                            <div class="date">Tue, April 10</div>
+                            <div class="notif">
+                                <div class="material-icons">filter_drama</div>
+                                <div class="material-icons">forum</div>
+                            </div>
+                        </div>
+
+                        <div class="lock">
+                            <div class="material-icons">fingerprint</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function id(a) {
+            return document.getElementById(a);
+        }
+        var phone = id("phone");
+        var phone_b = phone.getBoundingClientRect();
+        var body = id("body");
+        var center_x = (phone_b.width + phone_b.left) / 2;
+        var center_y = (phone_b.height + phone_b.top) / 2;
+        console.log(center_x, center_y);
+
+        phone.addEventListener("mousemove", (e) => {
+            body.style.transform = `rotateY(${(center_x - (e.pageX-phone_b.left))/20}deg) rotateX(${(center_y - (e.pageY-phone_b.top))/20}deg)`;
+        });
+        phone.addEventListener("mouseleave", (e) => {
+            body.style.transform = `rotateY(${0}deg) rotateX(${0}deg)`;
+        });
+    </script>
+</body>
+
+</html>
