@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <title>SideBar</title>
+</head>
+
+<body>
+    <div class="app col">
+        <div class="header">
+            <div class="btn material-icons" onclick="toggle('.sidebar')">menu</div>
+            <div class="title">Learn Everything.</div>
+            <div class="navbar">
+                <div class="opt">Home</div>
+                <div class="opt">About</div>
+                <div class="opt">Blogs</div>
+                <div class="btn material-icons" onclick="toggle('.sidebar')">menu</div>
+            </div>
+        </div>
+        <div class="sidebar col">
+            <div class="title">Sidebar</div>
+            <div class="cancel btn material-icons" onclick="toggle('.sidebar')">clear</div>
+            <div class="list col">
+                <div class="opt" onclick="setContent('articles/learnHTML.html')">Learn HTML</div>
+                <div class="opt" onclick="setContent('articles/learnCSS.html')">Learn CSS</div>
+                <div class="opt" onclick="setContent('articles/learnJS.html')">Learn JS</div>
+                <div class="opt">Learn Firebase</div>
+                <div class="opt">Learn Python</div>
+            </div>
+        </div>
+        <div class="content">
+            <iframe id="content-view" src="articles/learnHTML.html" frameborder="0"></iframe>
+        </div>
+        <div class="footer col">
+            <div class="title">Thanks For Visiting Our Page</div>
+        </div>
+    </div>
+
+    <script>
+        function toggle(a) {
+            var x = document.querySelector(a);
+            x.classList.toggle('shut');
+            console.log(x.classList);
+        }
+
+        function setContent(a) {
+            document.querySelector("#content-view").src = a;
+        }
+    </script>
+</body>
+
+</html>

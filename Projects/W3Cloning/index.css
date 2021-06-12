@@ -1,0 +1,275 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins';
+}
+
+.app {
+    width: 100vw;
+    min-height: 200vh;
+    position: relative;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1em;
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
+.header .logo {
+    font-size: 3em !important;
+    color: rgb(0, 199, 199);
+}
+
+.header>.navbar {
+    display: flex;
+}
+
+.header>.navbar>.opt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0 0.2em;
+}
+
+.opt>.material-icons {
+    font-size: 1.5em;
+}
+
+.header .opt:hover {
+    color: rgb(10, 202, 202);
+}
+
+.opt>.btn {
+    padding: 0.5em 2em;
+    border-radius: 1em;
+    background-color: teal;
+    color: white;
+}
+
+.top-nav {
+    z-index: 100;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(36, 30, 48);
+    color: white;
+    box-shadow: 0 8px 4px -4px rgba(0, 0, 0, 0.5);
+    padding: 0 1em;
+}
+
+.top-nav>.navbar {
+    display: flex;
+}
+
+.top-nav>.navbar>.opt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    padding: 0.5em;
+    cursor: pointer;
+}
+
+.top-nav>.navbar>.opt:hover {
+    background-color: rgb(2, 70, 70);
+}
+
+.selected {
+    background-color: teal;
+}
+
+.sidenav {
+    position: sticky;
+    top: 2.5em;
+    height: 100vh;
+    width: 15%;
+    padding: 1em;
+    background-color: rgb(212, 212, 212);
+}
+
+.sidenav>.title {
+    font-size: 2em;
+}
+
+.sidenav>.list {
+    height: 50vh;
+    overflow-y: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5em;
+    border-bottom: 1px solid rgb(175, 175, 175);
+}
+
+.sidenav>.list>.opt:hover {
+    background-color: rgb(175, 175, 175);
+}
+
+.sidenav>.link-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidenav>.link-wrapper>.link {
+    width: 100%;
+    text-align: center;
+    margin: 1em 0;
+    color: rgb(100, 100, 100);
+}
+
+.content {
+    position: absolute;
+    top: 150px;
+    left: 15%;
+    width: 75%;
+}
+
+article {
+    width: 100%;
+    border-right: 1px solid rgb(212, 212, 212);
+    padding: 1em;
+}
+
+article>.navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+article button {
+    outline: 0;
+    border: 0;
+    background-color: teal;
+    padding: 0.2em;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5em;
+    font-size: 1.5em;
+    min-width: 10vw;
+}
+
+article button:hover {
+    background-color: rgb(2, 87, 87);
+}
+
+article h1 {
+    font-size: 3em;
+    color: rgb(52, 52, 52);
+    margin: 0.5em 0;
+}
+
+article>.title {
+    width: 100%;
+    text-align: center;
+    color: black;
+}
+
+article p {
+    font-size: 1.2em;
+}
+
+article blockquote {
+    background-color: rgb(255, 227, 134);
+    padding: 1em;
+    margin: 1em 0;
+}
+
+.code {
+    background-color: rgb(22, 26, 43);
+    color: white;
+    width: 50%;
+    margin: 1em 0;
+    padding: 0.5em;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.code>.variable {
+    color: orange;
+}
+
+.code>.name {
+    color: salmon;
+}
+
+.code>.value {
+    color: rgb(175, 244, 96);
+}
+
+.footer {
+    margin-top: 10em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid rgb(175, 175, 175);
+}
+
+.footer>.navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.footer>.navbar>.opt {
+    padding: 1em;
+    width: 100%;
+    background-color: rgb(218, 218, 218);
+    margin: 1em;
+    text-align: center;
+    color: black;
+}
+
+.footer>.navbar>.opt:hover {
+    background-color: rgb(121, 121, 121);
+}
+
+.footer>.more-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    border-top: 1px solid rgb(175, 175, 175);
+}
+
+.more-content>.list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.more-content>.list>.title {
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
+.footer>.credits {
+    margin-top: 2em;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid rgb(175, 175, 175);
+}
+
+.footer>.logo {
+    font-size: 5em;
+    color: rgb(2, 70, 70);
+}
+
+.opt,
+.btn,
+.link {
+    cursor: pointer;
+}

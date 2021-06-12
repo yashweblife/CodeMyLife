@@ -1,0 +1,42 @@
+article {
+    font-size: 1.5rem;
+    margin: 1em 2em;
+    color: rgb(100, 100, 100);
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 1em 0;
+    color: rgb(201, 135, 135);
+}
+
+h2 {
+    margin: 1em 0;
+    color: rgb(245, 176, 176);
+}
+
+@media screen and (max-width:480px) {
+    article {
+        font-size: 1.5rem;
+        margin: 1em 1em;
+        color: rgb(100, 100, 100)
+    }
+    h1 {
+        font-size: 1em;
+        margin: 1em 0;
+        color: rgb(201, 135, 135);
+        text-align: center;
+    }
+    h2 {
+        font-size: 0.9em;
+        text-align: center;
+    }
+    p {
+        font-size: 0.8em;
+        text-align: left;
+    }
+}
